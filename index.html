@@ -1,41 +1,68 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+      rel="stylesheet"
+    />
     <title>JS-APP 101</title>
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
-    <header>
-      <h2>Todo App</h2>
-        <form id="todoForm">
-          <div class="form-input">
-              <label for="todo"></label>
-              <input
-                type="text"
-                placeholder="enter new todo"
-                id="todo"
-                required
-                name="todo"
-                minlength="2"
-                maxlength="100"
-              />
-          </div>
-            <button>Create Todo</button>
-        </form>
-  </header>
+    <header class="header">
+      <h2 class="primary-heading">Todo App</h2>
+      <form id="todoForm">
+        <div class="form-input">
+          <label for="todo"></label>
+          <input
+            type="text"
+            placeholder="enter new todo"
+            id="todo"
+            required
+            name="todo"
+            minlength="2"
+            maxlength="100"
+          />
+        </div>
+        <button>Create Todo</button>
+      </form>
+      <p class="notice">Double click to edit tasks</p>
+    </header>
 
-    <main>
-        <section id="displayTodo">
-          <ol id="todoList">
-            <!-- display todo item -->
-          </ol>
-        </section>
+    <main class="main">
+      <div id="successMessage" class="success-message hidden">
+        Task deleted successfully!
+      </div>
+
+      <section id="displayTodo" class="todo-container">
+        <ol id="todoList">
+          <!-- display todo item -->
+        </ol>
+
+        <!-- Modal to warn before delete -->
+        <div class="delete-modal hidden">
+          <p class="delete-warning" id="delete-warning">
+            Do you want to delete this task?
+          </p>
+
+          <div class="btns">
+            <button class="modal--btn modal--btn-yes" id="modal--btn-yes">
+              Yes
+            </button>
+            <button class="modal--btn modal--btn-no" id="modal--btn-no">
+              No
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- overlay -->
     </main>
+    <div class="overlay hidden"></div>
 
     <script type="module" src="./index.js"></script>
   </body>
